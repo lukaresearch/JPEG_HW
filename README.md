@@ -1,4 +1,4 @@
-# Coding-Assignment_JPEG-decoder_D12922011
+# Coding-Assignment_JPEG-decoder
  
 A Simple and Fast JPEG Decoder C program
 
