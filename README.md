@@ -2,10 +2,10 @@
  
 A Simple and Fast JPEG Decoder C program
 
-1. fastDecoder.c (main routines)
-	readMarker()
+1. fastDecoder.c (main routines) \newline
+	readMarker() \newline
 		defineHtable() (entropy encoding Huffman and run-length tables)
-	scanMCU()
+	scanMCU() \newline
 		blockEntropyDecode()
 		blockDequantize()
 		iDCT()
