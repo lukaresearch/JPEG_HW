@@ -2,18 +2,9 @@
  
 A Simple and Fast JPEG Decoder C program
 
-1. fastDecoder.c (main routines) \newline
-	readMarker() \newline
-		defineHtable() (entropy encoding Huffman and run-length tables)
-	scanMCU() \newline
-		blockEntropyDecode()
-		blockDequantize()
-		iDCT()
-		YCbCr2RGB()
-	BitmapWriter() (write RGB to bitmap file)
-
+Please refer readme.txt
+1. fastDecoder.c (main routines)
 2. Header File jpeg.h
-
 3. simple bitstreamAnalyzer.c (gcc -o bitstream bitstreamAnalyzer.c)
 
 To compile in Windows cmd environment (command prompt) with GNU C compiler gcc:
