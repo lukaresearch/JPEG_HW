@@ -8,9 +8,6 @@
 #include <math.h>
 #include <stdint.h>
 
-#define lineLen                         32
-#define winSize                         32768
-
 #define MarkerCode                      0xFF
 
 // start of frames
@@ -55,7 +52,7 @@ char *jpgFileName, *bmpFileName;
 int p;
 long int fileSize;
 uchar * jpgData;
-int blockCnt;
+int blocksSize;
 
 struct BlockYCbCr {
     int YCbCr[3][64];
@@ -99,13 +96,12 @@ struct BITMAPINFOHEADER {
     int32_t  biHeight;
     uint16_t biPlanes;
     uint16_t biBitCount;
-    
-    //uint32_t biCompression;
-    //uint32_t biSizeImage;
-    //int32_t  biXPelsPerMeter;
-    //int32_t  biYPelsPerMeter;
-    //uint32_t biClrUsed;
-    //uint32_t biClrImportant;
+    uint32_t biCompression;
+    uint32_t biSizeImage;
+    int32_t  biXPelsPerMeter;
+    int32_t  biYPelsPerMeter;
+    uint32_t biClrUsed;
+    uint32_t biClrImportant;
 };
 #pragma pack(pop)
 
@@ -124,10 +120,7 @@ uint verticalSamplingFactor;
 
 void readMarker();
 
-void resetColor();
-void printWord(uchar char1, uchar char2, char *color1, char *color2);
-void printChunk(int len);
-void defineHtable(struct Htable * h);
+void defineHtable();
 uint readWord(int p);
 uint getBit();
 uint getBits(uint len);
@@ -137,7 +130,7 @@ void printBlock(int * component);
 void printQuantizationTable(uint i);
 void printDCtable(uint i);
 void printACtable(uint i);
-void display();
+void displayTables();
 void displayBlocks();
 bool fileIO();
 

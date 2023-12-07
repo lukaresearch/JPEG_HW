@@ -39,12 +39,17 @@ void printChunk(int p, int lenChunk, char *jpgData) {
         printChar( p+i, *(jpgData+p+i), White );
 }
 
-int main(){
-    int lenChunk;
-    int endPoint = 0x2FF;
+int main(int argc, char** argv) {
+    char * jpegFileName;
+    int lenChunk, endPoint = 0x2FF;
+
+    if( argc < 2 ) {
+        jpegFileName = "teatime.jpg";
+    }
+    else
+        jpegFileName = argv[1];
 
 // Files
-    char * jpegFileName = "teatime.jpg";
     FILE * file = fopen(jpegFileName, "r+");
     if (file == NULL) return 1;
     fseek(file, 0, SEEK_END);
@@ -107,7 +112,7 @@ int main(){
         if( p>endPoint ) break;
     }
 
-
+    resetColor();
     free(jpgData);
     return 0;
 }
